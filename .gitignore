@@ -11,3 +11,14 @@ wheels/
 
 # Environment variables
 .env
+
+# Test/coverage artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Logs de ejecucion local
+*.log
+
+# Bases de datos de desarrollo (SQLite)
+*.db
