@@ -1,4 +1,34 @@
-# Práctica 2 — Programación de Backend y MCP en Python para IA Generativa
+# Certificación: Programación de Backend y MCP en Python para IA Generativa
+**Módulo 2**
+
+Repositorio central de prácticas, código fuente y evidencias de entrega del curso.
+
+---
+
+## Estructura del Repositorio
+
+```text
+Mod2IaGenerativa/
+├── docs/                          # Guías de clase y material de referencia
+│   └── guias/
+│       ├── practica_01.md
+│       └── practica-vibecoding-guiado.md
+├── entregas/                      # Evidencias de entrega organizadas por sesión
+│   └── s02/
+│       └── evidencia/
+│           ├── memoria.txt
+│           └── rate_limit.txt
+├── gemini_client.py               # Cliente base de Gemini (inspección de tokens y roles)
+├── conversation.py                # Memoria conversacional (ventana deslizante y rate limit)
+├── .env.example                   # Plantilla de variables de entorno
+├── .gitignore                     # Configuración de seguridad (ignora .env y entornos)
+├── pyproject.toml                 # Configuración de dependencias gestionado con uv
+└── README.md                      # Documentación del proyecto y bitácora de entregas
+```
+
+---
+
+## Registro de Entregas
 
 ## Clase 2 — APIs de IA Generativa y memoria conversacional
 
