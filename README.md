@@ -100,3 +100,13 @@ Elegí la estrategia de ventana deslizante (`trim_history()` con `MAX_TURNS = 10
 Ver evidencia en `entregas/s02/evidencia/rate_limit.txt`.
 
 Se provocó el error 429 (`RESOURCE_EXHAUSTED` / cuota de RPM alcanzada) enviando 20 peticiones seguidas; el programa capturó la excepción `ClientError`, aplicó reintentos con retroceso exponencial (`backoff`) y completó la ejecución controladamente sin caerse.
+
+## Clase 4 — Spec Sencilla + Spec Kit
+
+Mismo proyecto (conversor de temperatura) implementado con dos enfoques de Spec-Driven Development, para comparar resultados.
+
+- **Bloque 3.A — Spec a mano**: [`s4/clase-sdd/`](s4/clase-sdd/) — spec escrita a mano (`spec_manual.md`) e implementada en un solo pedido al agente. Resultados en [`s4/clase-sdd/resultados-3a.md`](s4/clase-sdd/resultados-3a.md).
+- **Bloque 3.B — Spec Kit**: [`s4/mi-proyecto-speckit/`](s4/mi-proyecto-speckit/) — flujo `/speckit.specify` → `/speckit.plan` → `/speckit.tasks` → `/speckit.implement`. Artefactos generados en `specs/001-conversor-temperatura/`. Resultados en [`s4/mi-proyecto-speckit/resultados-3b.md`](s4/mi-proyecto-speckit/resultados-3b.md).
+- **Comparación final**: [`s4/comparacion.md`](s4/comparacion.md) — tabla comparativa, los 3 casos de prueba lado a lado y la frase de cierre.
+
+> Nota: `agy` (agente CLI del curso) alcanzó su cuota de uso individual durante el Bloque 3.B. Los 4 comandos de Spec Kit se ejecutaron con Claude Code sobre las mismas plantillas que `specify init --integration generic` generó para `agy`, así que el flujo y los artefactos producidos son equivalentes a los que se habrían obtenido con `agy`.
