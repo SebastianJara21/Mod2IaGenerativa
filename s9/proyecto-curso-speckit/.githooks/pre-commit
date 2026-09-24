@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROYECTO="s9/proyecto-curso-speckit"
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Articulo VII.7: si cambio algo en app/services/ del proyecto Gastos, los
+# tests de services tienen que estar en verde ANTES de que el commit exista.
+if echo "$staged" | grep -q "^${PROYECTO}/app/services/"; then
+  echo "[pre-commit] ${PROYECTO}/app/services/ cambio -> corriendo tests de services..."
+  if ! (cd "$PROYECTO" && uv run pytest tests/test_gastos.py tests/test_usuarios.py -q); then
+    echo "[pre-commit] BLOQUEADO: tests de services en rojo." >&2
+    exit 1
+  fi
+fi
+
+# Articulo IV.3: SECRET_KEY nunca se escribe a mano en codigo versionado.
+secret_hit=0
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  case "$f" in *.env|*.env.example) continue ;; esac
+  if git show ":$f" 2>/dev/null | grep -Eq 'SECRET_KEY\s*=\s*["'"'"'][^"'"'"']+["'"'"']'; then
+    echo "[pre-commit] BLOQUEADO: $f tiene un SECRET_KEY hardcodeado." >&2
+    secret_hit=1
+  fi
+done <<< "$staged"
+
+[ "$secret_hit" -eq 0 ] || exit 1
+
+exit 0
