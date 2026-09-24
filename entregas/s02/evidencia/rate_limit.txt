@@ -1,0 +1,51 @@
+[tokens] TOTAL: 20
+Request 1: 1.
+[tokens] TOTAL: 32
+Request 2: 1, 2.
+[tokens] TOTAL: 47
+Request 3: 1, 2, 3.
+[tokens] TOTAL: 65
+Request 4: 1, 2, 3, 4.
+[tokens] TOTAL: 86
+Request 5: 1, 2, 3, 4, 5.
+[tokens] TOTAL: 110
+Request 6: 1, 2, 3, 4, 5, 6.
+[tokens] TOTAL: 137
+Request 7: 1, 2, 3, 4, 5, 6, 7.
+[tokens] TOTAL: 167
+Request 8: 1, 2, 3, 4, 5, 6, 7, 8.
+[tokens] TOTAL: 200
+Request 9: 1, 2, 3, 4, 5, 6, 7, 8, 9.
+[tokens] TOTAL: 238
+Request 10: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+[tokens] TOTAL: 280
+Request 11: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11.
+[tokens] TOTAL: 317
+Request 12: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.
+[tokens] TOTAL: 355
+Request 13: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13.
+[tokens] TOTAL: 394
+Request 14: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.
+[tokens] TOTAL: 434
+Request 15: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15.
+[429] Límite de RPM alcanzado. Reintentando en 1s...
+[429] Límite de RPM alcanzado. Reintentando en 2s...
+[429] Límite de RPM alcanzado. Reintentando en 4s...
+Request 16: Error del cliente (429): You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite
+Please retry in 55.803467198s.. No se reintenta.
+[429] Límite de RPM alcanzado. Reintentando en 1s...
+[429] Límite de RPM alcanzado. Reintentando en 2s...
+[429] Límite de RPM alcanzado. Reintentando en 4s...
+Request 17: Error del cliente (429): You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite
+Please retry in 48.074739919s.. No se reintenta.
+[429] Límite de RPM alcanzado. Reintentando en 1s...
+[tokens] TOTAL: 483
+Request 18: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18.
+[429] Límite de RPM alcanzado. Reintentando en 1s...
+[429] Límite de RPM alcanzado. Reintentando en 2s...
+[tokens] TOTAL: 533
+Request 19: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19.
+[tokens] TOTAL: 584
+Request 20: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20.
