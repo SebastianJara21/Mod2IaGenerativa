@@ -122,7 +122,7 @@ Sobre el mismo proyecto de la Clase 4 (`s4/mi-proyecto-speckit/`): 7 skills de Q
 - **Hallazgos de seguridad**: [`hallazgos-seguridad.md`](s4/mi-proyecto-speckit/hallazgos-seguridad.md).
 - **Reflexión y cierre**: [`REFLEXION-SESION5.md`](s4/mi-proyecto-speckit/REFLEXION-SESION5.md).
 
-> Nota: `agy` (Google Antigravity) tampoco estaba disponible para esta sesión, así que los 3 agentes se simularon con un subagente de Claude Code invocado en lenguaje natural, exactamente como indica la guía ("Usa el agente X para..."). Durante la simulación se detectaron y corrigieron 2 desviaciones reales del subagente — documentadas en `REFLEXION-SESION5.md`.
+> Nota: seguí con Claude Code en vez de volver a `agy` (es la opción recomendada por el curso, no obligatoria). Los 3 agentes se simularon con un subagente invocado en lenguaje natural, exactamente como indica la guía ("Usa el agente X para..."). Durante la simulación se detectaron y corrigieron 2 desviaciones reales del subagente — documentadas en `REFLEXION-SESION5.md`.
 
 ## Proyecto Integrador — Seguimiento de Hábitos (Sesión 9-10)
 
@@ -134,4 +134,4 @@ Proyecto final evaluado con presentación en vivo (REST + MCP funcionando). Apli
 - **Testing**: 109/109 tests en verde, cobertura 91% (`services/` 96.5% ≥90%, conjunto 93.5% ≥70% — umbrales de la constitución).
 - **Seguridad**: OAuth2 + JWT (HS256), contraseñas con `passlib[bcrypt]`, secretos solo en `.env` (nunca versionado), autorización siempre desde el JWT.
 
-> Nota: igual que en las prácticas anteriores, `agy` no estaba disponible — el flujo completo (`/speckit.constitution` → `/speckit.specify`+`/speckit.clarify` → `/speckit.plan`+`/speckit.analyze` → `/speckit.implement`) se ejecutó con un subagente de Claude Code simulando a `agy`, con verificación independiente después de cada fase. Se encontraron y corrigieron 10 desviaciones reales durante el proceso — desde una decisión de negocio tomada en silencio (fecha futura al marcar un hábito) hasta que el servidor MCP inicial no existía y, en su segundo intento, no hablaba el protocolo estándar. El detalle completo de cada corrección queda documentado en el historial de commits.
+> Nota: usé Claude Code en vez de `agy` por continuidad con el resto del curso (`agy` es la opción recomendada, no obligatoria). El flujo completo (`/speckit.constitution` → `/speckit.specify`+`/speckit.clarify` → `/speckit.plan`+`/speckit.analyze` → `/speckit.implement`) se ejecutó con un subagente simulando a `agy`, con verificación independiente después de cada fase. Se encontraron y corrigieron 10 desviaciones reales durante el proceso — desde una decisión de negocio tomada en silencio (fecha futura al marcar un hábito) hasta que el servidor MCP inicial no existía y, en su segundo intento, no hablaba el protocolo estándar. El detalle completo de cada corrección queda documentado en el historial de commits.
