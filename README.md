@@ -9,22 +9,21 @@ Repositorio central de prácticas, código fuente y evidencias de entrega del cu
 
 ```text
 Mod2IaGenerativa/
-├── docs/                          # Guías de clase y material de referencia
-│   └── guias/
-│       ├── practica_01.md
-│       └── practica-vibecoding-guiado.md
-├── entregas/                      # Evidencias de entrega organizadas por sesión
-│   └── s02/
-│       └── evidencia/
-│           ├── memoria.txt
-│           └── rate_limit.txt
-├── gemini_client.py               # Cliente base de Gemini (inspección de tokens y roles)
-├── conversation.py                # Memoria conversacional (ventana deslizante y rate limit)
-├── .env.example                   # Plantilla de variables de entorno
-├── .gitignore                     # Configuración de seguridad (ignora .env y entornos)
-├── pyproject.toml                 # Configuración de dependencias gestionado con uv
-└── README.md                      # Documentación del proyecto y bitácora de entregas
+├── docs/guias/                    # Guías de clase (referencia del profesor)
+├── entregas/s02/evidencia/        # Evidencias de la Clase 2 (memoria.txt, rate_limit.txt)
+├── gemini_client.py               # Clase 2: cliente base de Gemini
+├── conversation.py                # Clase 2: memoria conversacional
+├── s4/
+│   ├── clase-sdd/                 # Clase 4, Bloque 3.A: spec a mano
+│   ├── mi-proyecto-speckit/       # Clase 4 (Bloque 3.B) + Clase 5 (QA: skills/agentes/hooks)
+│   └── comparacion.md             # Clase 4: spec a mano vs. Spec Kit
+├── s9/
+│   └── proyecto-curso-speckit/    # Clase 9: Gastos con Spec Kit completo (constitution→implement)
+├── pyproject.toml / uv.lock       # Dependencias del workspace, gestionadas con uv
+└── README.md                      # Este archivo — bitácora de entregas por clase
 ```
+
+Cada sección de "Registro de Entregas" abajo tiene los links directos a los archivos de esa clase — no hace falta navegar el árbol a mano.
 
 ---
 
@@ -110,3 +109,17 @@ Mismo proyecto (conversor de temperatura) implementado con dos enfoques de Spec-
 - **Comparación final**: [`s4/comparacion.md`](s4/comparacion.md) — tabla comparativa, los 3 casos de prueba lado a lado y la frase de cierre.
 
 > Nota: `agy` (agente CLI del curso) alcanzó su cuota de uso individual durante el Bloque 3.B. Los 4 comandos de Spec Kit se ejecutaron con Claude Code sobre las mismas plantillas que `specify init --integration generic` generó para `agy`, así que el flujo y los artefactos producidos son equivalentes a los que se habrían obtenido con `agy`.
+
+## Clase 5 — Pruebas, Cobertura y Seguridad (Skills, Agentes y Hooks)
+
+Sobre el mismo proyecto de la Clase 4 (`s4/mi-proyecto-speckit/`): 7 skills de QA, 3 agentes especializados y un hook que bloquea al agente mientras los tests estén en rojo.
+
+- **Skills** (`.agents/skills/`): [`qa-unit`](s4/mi-proyecto-speckit/.agents/skills/qa-unit/SKILL.md), [`qa-integration`](s4/mi-proyecto-speckit/.agents/skills/qa-integration/SKILL.md), [`qa-e2e`](s4/mi-proyecto-speckit/.agents/skills/qa-e2e/SKILL.md), [`qa-coverage`](s4/mi-proyecto-speckit/.agents/skills/qa-coverage/SKILL.md), [`qa-security`](s4/mi-proyecto-speckit/.agents/skills/qa-security/SKILL.md), [`qa-report`](s4/mi-proyecto-speckit/.agents/skills/qa-report/SKILL.md) (+ [`generar_reporte.py`](s4/mi-proyecto-speckit/.agents/skills/qa-report/generar_reporte.py)), [`qa-orchestrate`](s4/mi-proyecto-speckit/.agents/skills/qa-orchestrate/SKILL.md).
+- **Agentes** (`.agents/agents/`): [`tester-agent`](s4/mi-proyecto-speckit/.agents/agents/tester-agent/agent.md), [`security-agent`](s4/mi-proyecto-speckit/.agents/agents/security-agent/agent.md), [`report-agent`](s4/mi-proyecto-speckit/.agents/agents/report-agent/agent.md).
+- **Hook**: [`gate-tests.sh`](s4/mi-proyecto-speckit/.agents/hooks/gate-tests.sh) + [`hooks.json`](s4/mi-proyecto-speckit/.agents/hooks.json) — bloquea el fin de turno del agente mientras `pytest` falle (evento `Stop`).
+- **Tests extendidos**: unitarios en [`tests/test_converter.py`](s4/mi-proyecto-speckit/tests/test_converter.py), integración en [`tests/integration/`](s4/mi-proyecto-speckit/tests/integration/), e2e en [`tests/e2e/`](s4/mi-proyecto-speckit/tests/e2e/) — 33 tests, 91% cobertura.
+- **Veredicto de calidad**: [`reporte-qa.html`](s4/mi-proyecto-speckit/reporte-qa.html) → APROBADO.
+- **Hallazgos de seguridad**: [`hallazgos-seguridad.md`](s4/mi-proyecto-speckit/hallazgos-seguridad.md).
+- **Reflexión y cierre**: [`REFLEXION-SESION5.md`](s4/mi-proyecto-speckit/REFLEXION-SESION5.md).
+
+> Nota: `agy` (Google Antigravity) tampoco estaba disponible para esta sesión, así que los 3 agentes se simularon con un subagente de Claude Code invocado en lenguaje natural, exactamente como indica la guía ("Usa el agente X para..."). Durante la simulación se detectaron y corrigieron 2 desviaciones reales del subagente — documentadas en `REFLEXION-SESION5.md`.
