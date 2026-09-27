@@ -123,3 +123,15 @@ Sobre el mismo proyecto de la Clase 4 (`s4/mi-proyecto-speckit/`): 7 skills de Q
 - **Reflexión y cierre**: [`REFLEXION-SESION5.md`](s4/mi-proyecto-speckit/REFLEXION-SESION5.md).
 
 > Nota: `agy` (Google Antigravity) tampoco estaba disponible para esta sesión, así que los 3 agentes se simularon con un subagente de Claude Code invocado en lenguaje natural, exactamente como indica la guía ("Usa el agente X para..."). Durante la simulación se detectaron y corrigieron 2 desviaciones reales del subagente — documentadas en `REFLEXION-SESION5.md`.
+
+## Proyecto Integrador — Seguimiento de Hábitos (Sesión 9-10)
+
+Proyecto final evaluado con presentación en vivo (REST + MCP funcionando). Aplica la misma arquitectura y forma de trabajar de "Gastos" (Sesiones 6-8) a una idea propia, siguiendo el flujo completo de Spec Kit: [`proyecto-integrador-habitos/`](proyecto-integrador-habitos/).
+
+- **Artefactos de Spec Kit**: [`constitution.md`](proyecto-integrador-habitos/.specify/memory/constitution.md) (7 artículos), [`spec.md`](proyecto-integrador-habitos/specs/001-habits-tracker/spec.md) (con `/speckit.clarify` resuelto), [`plan.md`](proyecto-integrador-habitos/specs/001-habits-tracker/plan.md), [`tasks.md`](proyecto-integrador-habitos/specs/001-habits-tracker/tasks.md) (55 tareas).
+- **REST**: 6 endpoints (`usuarios/`, `habitos/`) — código en [`app/routers/`](proyecto-integrador-habitos/app/routers/).
+- **MCP**: 4 tools (`crear_habito`, `listar_habitos`, `marcar_habito`, `eliminar_habito`) sobre transporte `streamable-http` estándar del SDK oficial — [`app/mcp/server.py`](proyecto-integrador-habitos/app/mcp/server.py). Verificado con el cliente oficial del SDK: sesión inicializada, tools listadas, tool invocada con resultado real.
+- **Testing**: 109/109 tests en verde, cobertura 91% (`services/` 96.5% ≥90%, conjunto 93.5% ≥70% — umbrales de la constitución).
+- **Seguridad**: OAuth2 + JWT (HS256), contraseñas con `passlib[bcrypt]`, secretos solo en `.env` (nunca versionado), autorización siempre desde el JWT.
+
+> Nota: igual que en las prácticas anteriores, `agy` no estaba disponible — el flujo completo (`/speckit.constitution` → `/speckit.specify`+`/speckit.clarify` → `/speckit.plan`+`/speckit.analyze` → `/speckit.implement`) se ejecutó con un subagente de Claude Code simulando a `agy`, con verificación independiente después de cada fase. Se encontraron y corrigieron 10 desviaciones reales durante el proceso — desde una decisión de negocio tomada en silencio (fecha futura al marcar un hábito) hasta que el servidor MCP inicial no existía y, en su segundo intento, no hablaba el protocolo estándar. El detalle completo de cada corrección queda documentado en el historial de commits.
